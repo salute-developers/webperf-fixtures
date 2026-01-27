@@ -1,0 +1,19 @@
+{
+  "name": "webperf-fixtures",
+  "private": true,
+  "workspaces": [
+    "services/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "test": "turbo run test"
+  },
+  "devDependencies": {
+    "turbo": "^2.7.6"
+  },
+  "dependencies": {
+    "@salutejs/prettier-config": "^3.1.0"
+  }
+}
