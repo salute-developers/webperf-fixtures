@@ -1,6 +1,6 @@
 # Speed CLS Emulator
 
-Сайт для тестирования CLS (Cumulative Layout Shift) через query параметр.
+Сайт для моделирование различных CLS (Cumulative Layout Shift), с настройкой через query параметр.
 
 ## Query параметры
 

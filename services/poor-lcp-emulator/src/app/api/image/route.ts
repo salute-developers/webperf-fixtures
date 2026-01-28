@@ -33,7 +33,32 @@ export async function GET(request: NextRequest) {
     await sleep(delayMs);
 
     const filePath = path.join(process.cwd(), 'public', 'SONIC.jpeg');
-    const image = await readFile(filePath);
+    let image: Buffer;
+    try {
+        image = await readFile(filePath);
+    } catch (error) {
+        const errorCode =
+            typeof error === 'object' && error && 'code' in error
+                ? (error as { code?: unknown }).code
+                : undefined;
+        const status = errorCode === 'ENOENT' ? 404 : 500;
+        const label = status === 404 ? 'Image not found' : 'Failed to read image';
+        const message = error instanceof Error ? error.message : 'Unknown error';
+
+        return new Response(
+            JSON.stringify({
+                error: label,
+                message,
+            }),
+            {
+                status,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Cache-Control': 'no-store, max-age=0, must-revalidate',
+                },
+            }
+        );
+    }
 
     return new Response(new Uint8Array(image), {
         headers: {

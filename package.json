@@ -1,6 +1,10 @@
 {
   "name": "webperf-fixtures",
   "private": true,
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "packageManager": "pnpm@10.25.0",
   "workspaces": [
     "services/*"
   ],
@@ -11,9 +15,11 @@
     "test": "turbo run test"
   },
   "devDependencies": {
-    "turbo": "^2.7.6"
+    "turbo": "^2.7.6",
+    "@salutejs/prettier-config": "^3.1.0"
   },
   "dependencies": {
-    "@salutejs/prettier-config": "^3.1.0"
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
   }
 }

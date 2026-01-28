@@ -46,6 +46,16 @@ export default async function Home({ searchParams }: Readonly<PageProps>) {
     var root = document.getElementById('cls-root');
     if (!root) return;
 
+    var existing = root.querySelector('.shiftBanner');
+    if (existing) {
+      existing.style.height = bannerHeightPx + 'px';
+      var existingInner = existing.querySelector('.shiftBannerInner');
+      if (existingInner) {
+        existingInner.textContent = 'Injected banner: ' + bannerHeightPx + 'px (target CLS=' + targetCls + ')';
+      }
+      return;
+    }
+
     var banner = document.createElement('div');
     banner.className = 'shiftBanner';
     banner.style.height = bannerHeightPx + 'px';
@@ -112,7 +122,7 @@ export default async function Home({ searchParams }: Readonly<PageProps>) {
                 </div>
                 <div className="infoCard">
                     <p className="infoLabel">banner height</p>
-                    <p className="infoValue">{Math.round(requestedCls * 100)}vh</p>
+                    <p className="infoValue">~{Math.round(requestedCls * 100)}vh (approx)</p>
                 </div>
             </div>
 
