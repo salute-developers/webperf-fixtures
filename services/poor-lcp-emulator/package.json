@@ -1,0 +1,35 @@
+{
+  "name": "poor-lcp-emulator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "next build",
+    "build:analyze": "ANALYZE=1 next build --experimental-build-mode compile",
+    "build:analyze:baseline": "ANALYZE=1 BASELINE=1 next build --experimental-build-mode compile",
+    "cy:report": "echo Ok && exit 0",
+    "cy:report:coverage": "echo Ok && exit 0",
+    "dev": "next dev --turbopack",
+    "lint": "eslint .",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@salutejs/plasma-themes": "0.30.0",
+    "@salutejs/plasma-web": "1.568.0",
+    "next": "16.1.5",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "uuid": "11.1.0"
+  },
+  "devDependencies": {
+    "@salutejs/eslint-config": "3.2.1",
+    "@types/node": "22.13.14",
+    "@types/react": "19.0.12",
+    "@types/react-dom": "19.0.4",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "9.23.0",
+    "next-plugin-bundle-stats": "4.19.1",
+    "prettier": "3.5.3",
+    "typescript": "5.8.2"
+  }
+}

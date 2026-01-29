@@ -1,0 +1,2 @@
+public/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
+public/**/*.ico filter=lfs diff=lfs merge=lfs -text
